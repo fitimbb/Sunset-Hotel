@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="pari">
+        <h1>Sign Up</h1>
+        <form id="signupForm" action="./Logini.html" method="post">
+            <input type="text" id="name" name="name" required placeholder="Name">
+            <span id="name-error" class="error-message"></span>
+            <input type="text" id="surname" name="surname" placeholder="Surname">
+            <span id="surname-error" class="error-message"></span>
+            <input type="email" id="email" name="email" required placeholder="Email">
+            <span id="email-error" class="error-message"></span>
+            <input type="password" id="password" name="password" required placeholder="Password">
+            <span id="password-error" class="error-message"></span>
+            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-Enter Password">
+            <span id="confirmPassword-error" class="error-message"></span>
+        </form>
+        <div class="termet">
+            <input type="checkbox" name="#" id="checkbox">
+            <label for="checkbox">I agree to these <a href="#">Term & Conditions</a></label>
+        </div>
+
+        <button type="button" onclick="validateForm()">Sign Up</button>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var surname = document.getElementById('surname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+
+            var nameError = document.getElementById('name-error');
+            var surnameError = document.getElementById('surname-error');
+            var emailError = document.getElementById('email-error');
+            var passwordError = document.getElementById('password-error');
+            var confirmPasswordError = document.getElementById('confirmPassword-error');
+
+            
+            if (!name) {
+                nameError.textContent = "Name is required";
+            }
+            if(!surname){
+                surnameError.textContent = "Surname is required";
+            }
+            
+            if (!email) {
+                emailError.textContent = "Email is required";    
+            }
+
+            
+            if (!password) {
+                passwordError.textContent = "Password is required";
+            }
+            if(!confirmPassword){
+                confirmPasswordError.textContent = "Confirm password is required";
+            }
+
+           
+            if (!confirmPassword) {
+                document.getElementById('confirmPassword').setCustomValidity('Confirm Password is required');
+            } else if (password !== confirmPassword) {
+                document.getElementById('confirmPassword').setCustomValidity('Passwords do not match');
+            }
+        }
+    </script>
+
+</body>
+</html>
