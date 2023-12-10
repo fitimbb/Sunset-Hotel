@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styleee.css">
+</head>
+<body>
+
+<div class="pari">
+    <h1>Log In</h1>
+    <form id="forma" action="#">
+        <input type="email" id="email" placeholder="Email">
+        <span id="email-error" class="error-message"></span>
+
+        <input type="password" id="password" placeholder="Password">
+        <span id="password-error" class="error-message"></span>
+
+        <button onclick="validateForm()">Log In</button>
+    </form>
+
+    <div class="termet">
+        <label for="checkbox">Not a member? <a href="./Signup.html">Register Now</a></label>
+    </div>
+</div>
+
+<script>
+    
+    function validateForm() {
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+
+        var emailError = document.getElementById('email-error');
+        var passwordError = document.getElementById('password-error');
+
+        
+        emailError.textContent = "";
+        passwordError.textContent = "";
+
+        
+        if (!email) {
+            emailError.textContent = "Email is required";
+        }
+
+        
+        if (!password) {
+            passwordError.textContent = "Password is required";
+        }
+
+        
+        if (!email || !password) {
+            event.preventDefault();
+        }
+    }
+</script>
+
+</body>
+</html>
