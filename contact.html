@@ -1,3 +1,25 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect form data
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    // Validate and process the form data as needed
+    // For example, you might send an email, save to a database, etc.
+
+    // For demonstration purposes, let's just print the data
+    echo "Name: $name<br>";
+    echo "Email: $email<br>";
+    echo "Message: $message<br>";
+} else {
+    // If someone tries to access this script directly, redirect them to the homepage
+    header("Location: index.html");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
